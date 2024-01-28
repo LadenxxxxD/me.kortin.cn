@@ -1,0 +1,102 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body class="text-neutral-400">
+		<header class="flex justify-between items-center z-1 mx-auto h-16 max-w-[800px] w-80%">
+			<div>Kortin's</div>
+			<nav class="">
+				<ul class="flex space-x-8">
+					<li class="list-none">
+						<a href="/" class="text-neutral-100">Home</a>
+					</li>
+					<li class="list-none">
+						<a href="https://www.notion.so/kortin/Note-a6884b4c725c4790ae117670bbc47081?pvs=4" class="hover:text-neutral-100">Posts</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<main>
+			<slot />
+		</main>
+		<footer>
+			<div class="flex justify-between items-center z-1 mx-auto h-16 max-w-[800px] w-80%">
+				<div class="text-neutral-400">© {new Date().getFullYear()} kortin.cn</div>
+				<a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener referrer" class="hover:text-neutral-100">苏ICP备2021038623号</a>
+			</div>
+		</footer>
+		<div class="fixed top-0 left-0 w-[140px] lg:w-[300px] aspect-ratio-square rounded-full bg-orange-500 blur-[200px] opacity-50"></div>
+		<div class="fixed right-0 bottom-0 w-[140px] lg:w-[300px] aspect-ratio-square rounded-full bg-violet-500 blur-[200px] opacity-50"></div>
+	</body>
+</html>
+<style>
+	main {
+		min-height: calc(100vh - 56px - 56px);
+	}
+</style>
+<style is:global>
+	:root {
+		--accent: 136, 58, 234;
+		--accent-light: 224, 204, 250;
+		--accent-dark: 49, 10, 101;
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			rgb(var(--accent-light)) 30%,
+			white 60%
+		);
+		font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;
+		font-size: .875rem;
+    line-height: 1.5rem;
+    font-weight: 400;
+	}
+	body {
+		margin: 0;
+		height: 100vh;
+	}
+	html {
+		font-family: system-ui, sans-serif;
+		background: #13151a;
+		background-size: 224px;
+	}
+	code {
+		font-family:
+			Menlo,
+			Monaco,
+			Lucida Console,
+			Liberation Mono,
+			DejaVu Sans Mono,
+			Bitstream Vera Sans Mono,
+			Courier New,
+			monospace;
+	}
+	ul {
+		padding: 0;
+	}
+	li {
+		list-style: none;
+	}
+
+	a {
+		text-decoration: none;
+		color: inherit;
+		cursor: pointer;
+	}
+	a:hover {
+		text-decoration: underline;
+	}
+</style>

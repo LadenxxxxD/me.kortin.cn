@@ -1,0 +1,43 @@
+---
+interface Props {
+  class: string | undefined;
+}
+
+const { class: clazz } = Astro.props;
+---
+
+<div class={`bg-grid ${clazz}`}>
+  <slot />
+</div>
+
+<style>
+  .bg-grid {
+    height: 200px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-size: 100px 100px;
+    z-index: -1;
+    color: #fff;
+    background-image: url(/images/bg-grid.png);
+    background-position-y: -9px;
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent,
+      10%,
+      white,
+      90%,
+      transparent
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      transparent,
+      10%,
+      white,
+      90%,
+      transparent
+    );
+  }
+</style>
