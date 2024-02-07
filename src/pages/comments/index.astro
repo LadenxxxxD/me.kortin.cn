@@ -1,0 +1,25 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Giscus from "@giscus/solid";
+---
+
+<Layout title="comments">
+  <section class="pt-16 pb-32">
+    <h1>Comments</h1>
+    <p>Leave your footprint or engage in a conversation with me to exchange ideas.</p>
+  </section>
+  <Giscus
+    id="comments"
+    repo="kortin99/me.kortin.cn"
+    repoId="R_kgDOIPacHA"
+    category="Comments"
+    categoryId="DIC_kwDOIPacHM4CdAnB"
+    mapping="pathname"
+    strict="0"
+    reactionsEnabled="1"
+    inputPosition="top"
+    theme="dark_tritanopia"
+    lang="zh-CN"
+    client:only
+  />
+</Layout>

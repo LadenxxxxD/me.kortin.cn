@@ -1,0 +1,40 @@
+---
+const currentPath = Astro.url.pathname;
+
+function getNavClassNames(path: string) {
+  return currentPath === path ? "text-neutral-100" : "text-neutral-400";
+}
+---
+
+<header
+  class="flex justify-between items-center z-1 mx-auto h-16 max-w-[800px] w-80% text-neutral-400"
+>
+  <!-- <div>Kortin's</div> -->
+  <div>
+    <a
+      data-hover
+      href="/"
+      class="hover:text-neutral-100 hover:decoration-none"
+    >
+      Kortin's
+    </a>
+  </div>
+  <nav class="">
+    <ul class="flex space-x-8">
+      <li class="list-none">
+        <a data-hover href="/" class={getNavClassNames("/")}>Home</a>
+      </li>
+      <li class="list-none">
+        <a
+          data-hover
+          href="https://kortin.notion.site/Note-a6884b4c725c4790ae117670bbc47081?pvs=4"
+          class="hover:text-neutral-100">Posts</a
+        >
+      </li>
+      <li class="list-none">
+        <a data-hover href="/comments" class={getNavClassNames("/comments")}>Comments</a
+        >
+      </li>
+    </ul>
+  </nav>
+</header>
